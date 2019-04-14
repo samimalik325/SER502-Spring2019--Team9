@@ -1,0 +1,88 @@
+SER 502 Contribution - Team 9
+
+Members -
+1. Subhradeep Biswas
+2. Prashansa
+3. Muhammad Sami
+
+Week 1 (Mar 23-30)
+1. Subhradeep Biswas
+	- Exploring and familiarizing with git
+	- Learning prerequisites for compiler design
+2. Prashansa
+	- Exploring and familiarizing with git
+	- Learning prerequisites for compiler design
+3. Muhammad Sami
+	- Setting up project in git
+	- Learning prerequisites for compiler design
+
+Week 2 (Mar 31 - Apr 6)
+1. Subhradeep Biswas
+	- Discussed and implemented grammar
+	- Studied and explored about compiler implementation process and provided design
+2. Prashansa
+	- Discussed and implemented grammar
+	- Wrote sample programs
+	- verified sample programs with the grammar
+3. Muhammad Sami
+	- Discussed and implemented grammar
+	- Wrote sample programs
+	- verified sample programs with the grammar
+	
+Proposed plan -
+1. Subhradeep Biswas - Lexical Analyzer
+2. Prashansa - Parse tree generator
+3. Muhammad Sami- Intermediate code generation and Runtime Execution
+
+
+Week 3 (Apr 7 - Apr 14)
+1. Subhradeep Biswas
+	- Study about ANTLR tool
+	- Create Lexical Analyser skeleton
+	- Write unit test cases to test grammar
+	- Write Sample programs
+2. Prashansa
+	- Study about ANTLR tool
+	- Create Parser Skeleton
+	- Write sample programs
+	- verify sample programs with the grammar
+3. Muhammad Sami
+	- Study about intermediate code generation
+	- Try generating intermediate code for simple programs
+	- Study about runtime execution
+	- Handle runtime for simple programs
+	- Help team with executing compiler
+
+
+Week 4 (Apr 15 - Apr 22)
+1. Subhradeep Biswas
+	- Make changes to grammar structure to make it compatible with ANTLR
+	- Change lexer skeleton to match our grammar
+2. Prashansa
+	- Make changes to grammar structure to make it compatible with ANTLR
+	- Explore the generated parse trees and fixed bugs in grammar.
+3. Muhammad Sami
+	- Develop intermediate code generator
+	- Write sample programs
+	- verify generated intermediate code with the parse tree
+	- Develop basic runtime structure
+
+
+Week 5 (Apr 23 - Apr 28)
+1. Subhradeep Biswas
+	- Change grammar to match additional functionalities
+	- Write test cases and worked on regressive testing of code
+	- Start working on the presentation activities - PPT, Video, Documentation
+	- Bug fixes
+	- Test the project regressively
+2. Prashansa
+	- Write test cases and worked on regressive testing of code
+	- Update parser to handle additional functionalities
+	- Start working on the presentation activities - PPT, Video, Documentation
+	- Bug fixes
+3. Muhammad Sami
+	- Write sample programs to check the working of the compiler
+	- Update intermediate code generator to handle additional functionalities
+	- Work on testing the project
+	- Start working on the presentation activities - PPT, Video, Documentation
+	- Bug fixes
