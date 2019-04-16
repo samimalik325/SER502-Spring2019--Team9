@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Class-Path: lib/antlr-4.7.1-complete.jar
-Created-By: 1.8.0_101 (Oracle Corporation)
-Main-Class: com.simple.runtime.SimpleExecuter
-
