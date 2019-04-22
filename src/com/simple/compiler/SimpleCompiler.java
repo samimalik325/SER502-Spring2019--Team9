@@ -57,5 +57,19 @@ public class SimpleCompiler {
 		return parser;
 	}
 	
+	public static void writeIntermediateFile(String fileName, ArrayList<String> intermediateCode) {
+		try {
+			PrintWriter writer = new PrintWriter(fileName + "int", "UTF-8");
+			for (String i:intermediateCode){
+				writer.println(i);
+			}
+			writer.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+	}
+	
 
 }
