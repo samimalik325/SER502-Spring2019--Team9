@@ -1,4 +1,4 @@
-// Generated from src/com/simple/compiler/simple.g4 by ANTLR 4.7.1
+// Generated from simple.g4 by ANTLR 4.7.1
 
 package com.simple.compiler;
 
@@ -73,6 +73,42 @@ public class simpleBaseListener implements simpleListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitDeclaration(simpleParser.DeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVar_declaration(simpleParser.Var_declarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVar_declaration(simpleParser.Var_declarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterInt_declaration(simpleParser.Int_declarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitInt_declaration(simpleParser.Int_declarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBool_declaration(simpleParser.Bool_declarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBool_declaration(simpleParser.Bool_declarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -241,6 +277,18 @@ public class simpleBaseListener implements simpleListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitFactor(simpleParser.FactorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBool_factor(simpleParser.Bool_factorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBool_factor(simpleParser.Bool_factorContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

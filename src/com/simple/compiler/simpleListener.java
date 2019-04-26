@@ -1,4 +1,4 @@
-// Generated from src/com/simple/compiler/simple.g4 by ANTLR 4.7.1
+// Generated from simple.g4 by ANTLR 4.7.1
 
 package com.simple.compiler;
 
@@ -59,6 +59,36 @@ public interface simpleListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitDeclaration(simpleParser.DeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link simpleParser#var_declaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterVar_declaration(simpleParser.Var_declarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link simpleParser#var_declaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitVar_declaration(simpleParser.Var_declarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link simpleParser#int_declaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterInt_declaration(simpleParser.Int_declarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link simpleParser#int_declaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitInt_declaration(simpleParser.Int_declarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link simpleParser#bool_declaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterBool_declaration(simpleParser.Bool_declarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link simpleParser#bool_declaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitBool_declaration(simpleParser.Bool_declarationContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link simpleParser#assignment_statement}.
 	 * @param ctx the parse tree
@@ -199,4 +229,14 @@ public interface simpleListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitFactor(simpleParser.FactorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link simpleParser#bool_factor}.
+	 * @param ctx the parse tree
+	 */
+	void enterBool_factor(simpleParser.Bool_factorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link simpleParser#bool_factor}.
+	 * @param ctx the parse tree
+	 */
+	void exitBool_factor(simpleParser.Bool_factorContext ctx);
 }

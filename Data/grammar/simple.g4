@@ -21,11 +21,20 @@ statement : assignment_statement ';'
 declaration_list : declaration ';' declaration_list
 	  | declaration ';';
 	  
-declaration : 'int' IDENTIFIER
-      | 'bool' IDENTIFIER;
+declaration : int_declaration
+      | bool_declaration
+      | var_declaration;
+      
+      
+var_declaration : 'variable' IDENTIFIER ';' ;
+      
+int_declaration : 'int' IDENTIFIER;
+
+bool_declaration : 'bool' IDENTIFIER;
 
 
-assignment_statement : IDENTIFIER '=' expression;
+assignment_statement : IDENTIFIER '=' expression
+					| IDENTIFIER '=' bool_expression;
 
 
 if_statement : 'if' '(' bool_expression ')' ':' statement_list 'endif' else_statement?;
@@ -52,12 +61,13 @@ conditional_expression : expression '==' expression
         | expression '>' expression
         | expression '>=' expression
         | expression '==' BOOLEAN
-        | expression '!=' BOOLEAN;
+        | expression '!=' BOOLEAN
+        | '?' bool_factor;
         
 
 
 bool_expression : conditional_expression
-        | BOOLEAN ;
+        | bool_factor ;
 
 
 expression : term '+' expression
@@ -74,9 +84,10 @@ term :  factor '*' term
 factor : '(' expression ')'
     | IDENTIFIER
     | function_call_statement
-    | NUMBER
-    | BOOLEAN;
+    | NUMBER;
     
+
+bool_factor : IDENTIFIER | BOOLEAN;
 
 IDENTIFIER : [a-zA-Z][a-zA-Z0-9]*  ;
 

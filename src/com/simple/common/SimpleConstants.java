@@ -2,6 +2,8 @@ package com.simple.common;
 
 public class SimpleConstants {
 	public static final String DECLARE = "DECLARE ";
+	public static final String DECLAREINT = "INT ";
+	public static final String DECLAREBOOL = "BOOLEAN ";
 	public static final String ASSIGN = "ASSIGNMENT ";
 	public static final String IF = "IF ";
 	public static final String END_IF = "END IF ";
