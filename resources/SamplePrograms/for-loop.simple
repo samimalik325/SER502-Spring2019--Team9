@@ -1,0 +1,14 @@
+declare
+
+int n;
+
+begin
+
+n = 100;
+
+for(n != 0):
+	print n;
+	n = n - 1;
+	endfor
+		
+end;
