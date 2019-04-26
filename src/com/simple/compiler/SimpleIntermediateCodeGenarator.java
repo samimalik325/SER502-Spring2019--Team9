@@ -284,13 +284,34 @@ public class SimpleIntermediateCodeGenarator extends simpleBaseListener  {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunction_statement(simpleParser.Function_statementContext ctx) { }
+	@Override public void enterFunction_statement(simpleParser.Function_statementContext ctx) {
+		
+		if (ctx.IDENTIFIER() != null) {
+			funcStack.push("#"+ctx.IDENTIFIER(0).getText());
+			iCode.add(SimpleConstants.FUNCTION_DECLARE.trim() + "_" + ctx.IDENTIFIER(0).getText());
+			String func = "";
+			func = SimpleConstants.FUNCTION_PARAM.trim();
+			for (int i = 1; i < ctx.IDENTIFIER().size(); i++) {
+				func = func + " #" +ctx.IDENTIFIER(0).getText() + ctx.IDENTIFIER(i).getText();
+			}
+			
+			iCode.add(func);
+		}
+		
+	}
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunction_statement(simpleParser.Function_statementContext ctx) { }
+	@Override public void exitFunction_statement(simpleParser.Function_statementContext ctx) { 
+		
+		if (ctx.IDENTIFIER(0) != null) {
+			iCode.add(SimpleConstants.FUNCTION_END.trim() + "_" + ctx.IDENTIFIER(0).getText());
+			funcStack.pop();
+		}
+		
+	}
 	/**
 	 * {@inheritDoc}
 	 *
@@ -302,7 +323,11 @@ public class SimpleIntermediateCodeGenarator extends simpleBaseListener  {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitReturn_statement(simpleParser.Return_statementContext ctx) { }
+	@Override public void exitReturn_statement(simpleParser.Return_statementContext ctx) {
+		
+		iCode.add(SimpleConstants.FUNCTION_RETURN);
+		
+	}
 	/**
 	 * {@inheritDoc}
 	 *
@@ -314,7 +339,11 @@ public class SimpleIntermediateCodeGenarator extends simpleBaseListener  {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunction_call_statement(simpleParser.Function_call_statementContext ctx) { }
+	@Override public void exitFunction_call_statement(simpleParser.Function_call_statementContext ctx) { 
+		
+		iCode.add(SimpleConstants.FUNCTION_CALL.trim() + "_" + ctx.IDENTIFIER().getText());
+		
+	}
 	/**
 	 * {@inheritDoc}
 	 *
