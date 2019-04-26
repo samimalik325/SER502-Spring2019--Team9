@@ -22,7 +22,7 @@ public class SimpleCompiler {
 	static simpleParser parser = null;
 	public static void main(String[] args) {
 		
-		String filename = "resources/SamplePrograms/test.simple";
+		String filename = "resources/SamplePrograms/while-loop.simple";
 		System.out.print(args.length );
 		/*if (args.length > 0){
 		

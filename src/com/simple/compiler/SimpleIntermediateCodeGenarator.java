@@ -17,9 +17,9 @@ public class SimpleIntermediateCodeGenarator extends simpleBaseListener  {
 	private static Stack<String> funcStack = new Stack<String>();
 	private static ArrayList<String> iCode;
 //	
-//	private static Stack<Integer> nestedStack = new Stack<Integer>(); 
-//
-//	private static int countNestedValue = 1;
+	private static Stack<Integer> nestedStack = new Stack<Integer>(); 
+
+	private static int countNestedValue = 1;
 	
 	public static SimpleIntermediateCodeGenarator getInstance() {
 		if (INSTANCE == null) {
@@ -182,19 +182,36 @@ public class SimpleIntermediateCodeGenarator extends simpleBaseListener  {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIf_statement(simpleParser.If_statementContext ctx) { }
+	@Override public void enterIf_statement(simpleParser.If_statementContext ctx) {
+		
+		
+		iCode.add(SimpleConstants.IF.trim() +"_" + countNestedValue);
+		nestedStack.push(countNestedValue);
+		countNestedValue++;
+		
+	}
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIf_statement(simpleParser.If_statementContext ctx) { }
+	@Override public void exitIf_statement(simpleParser.If_statementContext ctx) {
+		
+		iCode.add(SimpleConstants.END_IF.trim() + "_" + nestedStack.pop());
+		
+	}
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterElse_statement(simpleParser.Else_statementContext ctx) { }
+	@Override public void enterElse_statement(simpleParser.Else_statementContext ctx) { 
+		
+		int accumulator = nestedStack.pop();
+		nestedStack.push(accumulator);
+		iCode.add(SimpleConstants.ELSE.trim() + "_" + accumulator);
+		
+	}
 	/**
 	 * {@inheritDoc}
 	 *
@@ -206,25 +223,43 @@ public class SimpleIntermediateCodeGenarator extends simpleBaseListener  {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterWhile_statement(simpleParser.While_statementContext ctx) { }
+	@Override public void enterWhile_statement(simpleParser.While_statementContext ctx) {
+		
+		iCode.add(SimpleConstants.WHILELOOP.trim() + "_" + nestedStack.push(countNestedValue));
+		countNestedValue++;
+		
+	}
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitWhile_statement(simpleParser.While_statementContext ctx) { }
+	@Override public void exitWhile_statement(simpleParser.While_statementContext ctx) { 
+		
+		iCode.add(SimpleConstants.END_WHILELOOP.trim() + "_" + nestedStack.pop());
+		
+	}
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFor_statement(simpleParser.For_statementContext ctx) { }
+	@Override public void enterFor_statement(simpleParser.For_statementContext ctx) { 
+		
+		iCode.add(SimpleConstants.FORLOOP.trim() + "_" + nestedStack.push(countNestedValue));
+		countNestedValue++;
+		
+	}
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFor_statement(simpleParser.For_statementContext ctx) { }
+	@Override public void exitFor_statement(simpleParser.For_statementContext ctx) { 
+		
+		iCode.add(SimpleConstants.END_FORLOOP.trim() + "_" + nestedStack.pop());
+		
+	}
 	/**
 	 * {@inheritDoc}
 	 *
@@ -291,7 +326,25 @@ public class SimpleIntermediateCodeGenarator extends simpleBaseListener  {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitConditional_expression(simpleParser.Conditional_expressionContext ctx) { }
+	@Override public void exitConditional_expression(simpleParser.Conditional_expressionContext ctx) { 
+		
+		if (ctx.getText().contains("==")) {
+			iCode.add(SimpleConstants.EQUAL);
+		} else if (ctx.getText().contains("<=")) {
+			iCode.add(SimpleConstants.LESS_EQUAL);
+		} else if (ctx.getText().contains(">=")) {
+			iCode.add(SimpleConstants.GREAT_EQUAL);
+		} else if (ctx.getText().contains("!=")) {
+			iCode.add(SimpleConstants.NOT_EQUAL);
+		} else if (ctx.getText().contains("<")) {
+			iCode.add(SimpleConstants.LESS_THAN);
+		} else if (ctx.getText().contains(">")) {
+			iCode.add(SimpleConstants.GREATER_THAN);
+		}
+	
+		iCode.add(SimpleConstants.CONDITION_END);
+		
+	}
 	/**
 	 * {@inheritDoc}
 	 *
@@ -315,7 +368,15 @@ public class SimpleIntermediateCodeGenarator extends simpleBaseListener  {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpression(simpleParser.ExpressionContext ctx) { }
+	@Override public void exitExpression(simpleParser.ExpressionContext ctx) {
+		
+		if (ctx.getText().contains("+")) {
+			iCode.add(SimpleConstants.ADDITION);
+		} else if (ctx.getText().contains("-")) {
+			iCode.add(SimpleConstants.SUBTRACTION);
+		} 
+		
+	}
 	/**
 	 * {@inheritDoc}
 	 *
@@ -327,7 +388,18 @@ public class SimpleIntermediateCodeGenarator extends simpleBaseListener  {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTerm(simpleParser.TermContext ctx) { }
+	@Override public void exitTerm(simpleParser.TermContext ctx) {
+		
+		if (ctx.getText().contains("*")) {
+			iCode.add(SimpleConstants.MULTIPLY);
+	} else if (ctx.getText().contains("/")) {
+		iCode.add(SimpleConstants.DIVISION);
+	} else if (ctx.getText().contains("%")) {
+		iCode.add(SimpleConstants.REMINDER);
+		
+	}
+		
+	}
 	/**
 	 * {@inheritDoc}
 	 *
@@ -339,7 +411,21 @@ public class SimpleIntermediateCodeGenarator extends simpleBaseListener  {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFactor(simpleParser.FactorContext ctx) { }
+	@Override public void exitFactor(simpleParser.FactorContext ctx) {
+		
+		if (ctx.NUMBER() != null) {
+			iCode.add(SimpleConstants.PUSH + ctx.NUMBER().getText());
+		} else if (ctx.IDENTIFIER() != null ) {
+			if (funcStack.isEmpty()) {
+				iCode.add(SimpleConstants.LOAD + ctx.IDENTIFIER().getText());
+			} else {
+				String accumulator = funcStack.pop();
+				funcStack.push(accumulator);
+				iCode.add(SimpleConstants.LOAD + accumulator + ctx.IDENTIFIER().getText());
+			}
+		}
+		
+	}
 	/**
 	 * {@inheritDoc}
 	 *
