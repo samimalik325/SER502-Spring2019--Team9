@@ -111,7 +111,7 @@ public class SimpleIntermediateCodeGenarator extends simpleBaseListener  {
 	 */
 	@Override public void enterInt_declaration(simpleParser.Int_declarationContext ctx) {
 		
-		System.out.println(ctx.IDENTIFIER().getText());
+//		System.out.println(ctx.IDENTIFIER().getText());
 		
 		if (funcStack.isEmpty()) {
 			iCode.add(SimpleConstants.DECLAREINT + ctx.IDENTIFIER().getText());
@@ -136,7 +136,7 @@ public class SimpleIntermediateCodeGenarator extends simpleBaseListener  {
 	 */
 	@Override public void enterBool_declaration(simpleParser.Bool_declarationContext ctx) {
 		
-		System.out.println(ctx.IDENTIFIER().getText());
+//		System.out.println(ctx.IDENTIFIER().getText());
 		
 		if (funcStack.isEmpty()) {
 			iCode.add(SimpleConstants.DECLAREBOOL + ctx.IDENTIFIER().getText());

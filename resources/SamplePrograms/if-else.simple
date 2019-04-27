@@ -16,11 +16,11 @@ z = 0;
 
 
 if(c != 2):
-		z = x * y;
+		z = c * a;
 		
 endif
 else:
-		z = x * c;
+		z = c * b;
 endelse	
 
 print z;
