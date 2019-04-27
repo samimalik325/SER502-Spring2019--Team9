@@ -40,7 +40,17 @@ public class SimpleExecuter {
 	
 	
 	public static void main(String[] args) {
-		String filename = "resources/SamplePrograms/nested-if-else.simpleint";
+		
+		
+		String filename = "";
+		if (args.length > 0){
+	    		filename = args[0];
+	    	} else {
+			System.out.println("input filename can't be empty");
+			return;
+		}		
+		
+//		String filename = "resources/SamplePrograms/nested-if-else.simpleint";
 
 			
 		if (!filename.contains(".simpleint")) {
