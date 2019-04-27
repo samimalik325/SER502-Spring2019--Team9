@@ -40,7 +40,7 @@ public class SimpleExecuter {
 	
 	
 	public static void main(String[] args) {
-		String filename = "resources/SamplePrograms/while-loop.simpleint";
+		String filename = "resources/SamplePrograms/nested-if-else.simpleint";
 
 			
 		if (!filename.contains(".simpleint")) {

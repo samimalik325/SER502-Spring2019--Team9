@@ -1,9 +1,12 @@
 declare
 
 int n;
+
 begin
+
 n = 50;
 countBackwards(n);
+
 def countBackwards(n):
 if (n>0):
  	print n;
@@ -11,4 +14,5 @@ if (n>0):
 	countBackwards(n);
 endif
 endfunc
+
 end;

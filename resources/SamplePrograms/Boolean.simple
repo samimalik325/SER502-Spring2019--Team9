@@ -1,0 +1,22 @@
+declare
+
+bool n;
+bool m;
+bool p;
+
+begin
+n = true;
+m = false;
+p = true;
+
+if (? n):
+ 	print 10;
+endif
+if (? m):
+ 	print 333;
+endif
+
+if (? p):
+ 	print 22;
+endif
+end;

@@ -1,0 +1,25 @@
+declare
+
+int a;
+int b;
+int c;
+int t;
+
+begin
+
+a = 0;
+b = 1;
+c = 10;
+t = 0;
+
+print a;
+
+while(c != 0):
+	t = a;
+	a = b;
+	b = t + b;
+	c = c - 1;
+	print a;
+	endwhile
+
+end;

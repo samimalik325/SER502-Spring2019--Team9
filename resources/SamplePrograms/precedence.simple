@@ -1,6 +1,6 @@
 declare
 
-int a;
+int n;
 int b;
 int c;
 int d;
@@ -14,13 +14,8 @@ b = 2;
 c = 3;
 d = 4;
 z = 0;
-print MUL(c,d);
-print MUL(a,b);
 
-
-def MUL (x,y):
-	z = x * y;
-	return z;
-endfunc
+z = a + b - c * d;
+print z;
 
 end;

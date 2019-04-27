@@ -479,6 +479,7 @@ public class SimpleIntermediateCodeGenarator extends simpleBaseListener  {
 				iCode.add(SimpleConstants.LOAD + accumulator + ctx.IDENTIFIER().getText());
 			}
 		}
+		
 	}
 
 	/**

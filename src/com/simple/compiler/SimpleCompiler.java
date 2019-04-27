@@ -22,8 +22,8 @@ public class SimpleCompiler {
 	static simpleParser parser = null;
 	public static void main(String[] args) {
 		
-		String filename = "resources/SamplePrograms/while-loop.simple";
-		System.out.print(args.length );
+		String filename = "resources/SamplePrograms/nested-if-else.simple";
+//		System.out.print(args.length );
 		/*if (args.length > 0){
 		
     			filename = "ArithmaticOperations.simple";

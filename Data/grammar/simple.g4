@@ -25,16 +25,14 @@ declaration : int_declaration
       | bool_declaration
       | var_declaration;
       
-      
 var_declaration : 'variable' IDENTIFIER ';' ;
       
 int_declaration : 'int' IDENTIFIER;
 
 bool_declaration : 'bool' IDENTIFIER;
 
-
 assignment_statement : IDENTIFIER '=' expression
-					| IDENTIFIER '=' bool_expression;
+				| IDENTIFIER '=' bool_expression;
 
 
 if_statement : 'if' '(' bool_expression ')' ':' statement_list 'endif' else_statement?;
@@ -84,14 +82,14 @@ term :  factor '*' term
 factor : '(' expression ')'
     | IDENTIFIER
     | function_call_statement
-    | NUMBER;
+    | NUMBER ;
     
-
 bool_factor : IDENTIFIER | BOOLEAN;
+
+BOOLEAN : 'true' | 'false' ;
 
 IDENTIFIER : [a-zA-Z][a-zA-Z0-9]*  ;
 
-BOOLEAN : 'true' | 'false' ;
 
 NUMBER :[0-9]+;
 
