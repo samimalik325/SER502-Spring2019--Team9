@@ -370,6 +370,9 @@ public class SimpleIntermediateCodeGenarator extends simpleBaseListener  {
 		} else if (ctx.getText().contains(">")) {
 			iCode.add(SimpleConstants.GREATER_THAN);
 		}
+		else if (ctx.getText().contains("? ")) {
+			iCode.add("? ");
+		}
 	
 		iCode.add(SimpleConstants.CONDITION_END);
 		
@@ -466,7 +469,21 @@ public class SimpleIntermediateCodeGenarator extends simpleBaseListener  {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBool_factor(simpleParser.Bool_factorContext ctx) { }
+	@Override public void exitBool_factor(simpleParser.Bool_factorContext ctx) {
+		
+		if (ctx.BOOLEAN() != null)
+		{
+			iCode.add(SimpleConstants.PUSH + ctx.BOOLEAN().getText());
+		} else if (ctx.IDENTIFIER() != null ) {
+			if (funcStack.isEmpty()) {
+				iCode.add(SimpleConstants.LOAD + ctx.IDENTIFIER().getText());
+			} else {
+				String accumulator = funcStack.pop();
+				funcStack.push(accumulator);
+				iCode.add(SimpleConstants.LOAD + accumulator + ctx.IDENTIFIER().getText());
+			}
+		}
+	}
 
 	/**
 	 * {@inheritDoc}
