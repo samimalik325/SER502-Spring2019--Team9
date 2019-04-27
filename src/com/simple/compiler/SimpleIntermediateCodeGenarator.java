@@ -16,7 +16,7 @@ public class SimpleIntermediateCodeGenarator extends simpleBaseListener  {
 	private static SimpleIntermediateCodeGenarator INSTANCE = null;
 	private static Stack<String> funcStack = new Stack<String>();
 	private static ArrayList<String> iCode;
-//	
+	
 	private static Stack<Integer> nestedStack = new Stack<Integer>(); 
 
 	private static int countNestedValue = 1;
@@ -111,8 +111,6 @@ public class SimpleIntermediateCodeGenarator extends simpleBaseListener  {
 	 */
 	@Override public void enterInt_declaration(simpleParser.Int_declarationContext ctx) {
 		
-//		System.out.println(ctx.IDENTIFIER().getText());
-		
 		if (funcStack.isEmpty()) {
 			iCode.add(SimpleConstants.DECLAREINT + ctx.IDENTIFIER().getText());
 	} else {
@@ -135,8 +133,6 @@ public class SimpleIntermediateCodeGenarator extends simpleBaseListener  {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void enterBool_declaration(simpleParser.Bool_declarationContext ctx) {
-		
-//		System.out.println(ctx.IDENTIFIER().getText());
 		
 		if (funcStack.isEmpty()) {
 			iCode.add(SimpleConstants.DECLAREBOOL + ctx.IDENTIFIER().getText());

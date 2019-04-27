@@ -41,15 +41,9 @@ public class SimpleExecuter {
 	
 	public static void main(String[] args) {
 		String filename = "resources/SamplePrograms/while-loop.simpleint";
-		/*if (args.length > 0){
-	    		filename = args[0];
-	    	} else {
-			System.out.println("input filename can't be empty");
-			return;
-		}*/
+
 			
 		if (!filename.contains(".simpleint")) {
-//			System.out.println("Enter a valid .simple file");
 			return;
 		}
 		
@@ -58,7 +52,6 @@ public class SimpleExecuter {
 				listofCode.add(line);
 			}
 		} catch (IOException e) {
-//			System.out.println("File not found...Please specify valid input file");
 			e.printStackTrace();
 		}
 		
@@ -109,9 +102,6 @@ public class SimpleExecuter {
 	
 	static public void execute(){
 		
-		
-//		System.out.println("In Execute File");
-//		
 		String codeList = listofCode.get(indexForIteration);
 		String[] split = codeList.split(" ");
 		
@@ -151,6 +141,7 @@ public class SimpleExecuter {
 				}					
 			}
 			break;
+			
 		case SimpleConstants.DECLAREBOOL:
 			if (scope.isEmpty()) {
 				if (!boolVariables.containsKey(split[1])) {
@@ -167,25 +158,22 @@ public class SimpleExecuter {
 				}				
 			}
 			break;
+			
 		case SimpleConstants.ASSIGN :
 			if (scope.isEmpty()) {
 				if (variables.containsKey(split[1])) {
-					//System.out.println("1.E");
 					variables.put(split[1], stackForIntegers.pop());
 				}
 				else if (boolVariables.containsKey(split[1])) {
-					//System.out.println("2.E");
 					boolVariables.put(split[1], stackForBooleans.pop());
 				} else{
 					variables.put(split[1], stackForIntegers.pop());
 				}
 			} else {
 				if (variables.containsKey(getScope() + split[1])) {
-					//System.out.println("3.NE");
 					variables.put(getScope() + split[1], stackForIntegers.pop());
 				}
 				else if (boolVariables.containsKey(getScope() + split[1])) {
-					//System.out.println("4.NE");
 					boolVariables.put(getScope() + split[1], stackForBooleans.pop());
 				} else{
 					variables.put(getScope() + split[1], stackForIntegers.pop());
@@ -196,21 +184,16 @@ public class SimpleExecuter {
 		
 
 		case SimpleConstants.LOAD:
-			//System.out.println(scope.peek());
 			if (scope.isEmpty()) {
 				if (boolVariables.containsKey(split[1])) {
 					if (Boolean.toString(boolVariables.get(split[1])).equals("true")) {
 						stackForBooleans.push(true);
-						//System.out.println("1");
 					}
 					if (Boolean.toString(boolVariables.get(split[1])).equals("false")) {
 						stackForBooleans.push(false);
-						//System.out.println("2");
 					}
 				} else if (variables.containsKey(split[1])) {
-					//System.out.println("3");
 					stackForIntegers.push(variables.get(split[1]));
-					//System.out.println(variables.get(split[1]));
 						
 				}
 				else {
@@ -220,14 +203,13 @@ public class SimpleExecuter {
 				if (boolVariables.containsKey(getScope() +split[1])) {
 					if (Boolean.toString(boolVariables.get(getScope() + split[1])).equals("true")) {
 						stackForBooleans.push(true);
-						//System.out.println("4");
+
 					}
 					if (Boolean.toString(boolVariables.get(getScope() + split[1])).equals("false")) {
 						stackForBooleans.push(false);
-						//System.out.println("5");
+	
 					}
 				}else if (variables.containsKey(getScope() + split[1])) {
-					//System.out.println("6");
 					
 					stackForIntegers.push(variables.get(getScope() + split[1]));
 				} else {
@@ -238,9 +220,7 @@ public class SimpleExecuter {
 
 		case SimpleConstants.PUSH:
 			if  (split[1].equals("true") || split[1].equals("false")) {
-				//System.out.println(split[1]);
 				stackForBooleans.push(Boolean.parseBoolean(split[1]));
-				//System.out.println(Boolean.parseBoolean(split[1]));
 			} else
 				stackForIntegers.push(Integer.parseInt(split[1]));
 			
@@ -255,14 +235,17 @@ public class SimpleExecuter {
 			stackForIntegers.push(accumulator);
 			//System.out.println(accumulator);
 			break;
+			
 		case SimpleConstants.SUBTRACTION:
 			accumulator = stackForIntegers.pop();
 			accumulator = stackForIntegers.pop() - accumulator;
 			stackForIntegers.push(accumulator);
 			break;
+			
 		case SimpleConstants.MULTIPLY:
 			stackForIntegers.push((stackForIntegers.pop() * stackForIntegers.pop()));
 			break;
+			
 		case SimpleConstants.DIVISION:
 			accumulator = stackForIntegers.pop();
 			if (accumulator != 0) {
@@ -272,11 +255,13 @@ public class SimpleExecuter {
 				throwException("Exception can't divide number by 0");
 			}				
 			break;
+			
 		case SimpleConstants.REMINDER:
 			accumulator = stackForIntegers.pop();
 			accumulator = stackForIntegers.pop() % accumulator;
 			stackForIntegers.push(accumulator);
 			break;
+			
 		case SimpleConstants.EQUAL:
 			if ((stackForIntegers.pop() == stackForIntegers.pop())) {
 				stackForBooleans.push(true);
@@ -292,6 +277,7 @@ public class SimpleExecuter {
 				stackForBooleans.push(false);
 			}
 			break;
+			
 		case SimpleConstants.GREATER_THAN:
 			accumulator = stackForIntegers.pop();
 			if (stackForIntegers.pop() > accumulator) {
@@ -300,6 +286,7 @@ public class SimpleExecuter {
 				stackForBooleans.push(false);
 			}
 			break;
+			
 		case SimpleConstants.LESS_EQUAL:
 			accumulator = stackForIntegers.pop();
 			if (stackForIntegers.pop() <= accumulator) {
@@ -308,6 +295,7 @@ public class SimpleExecuter {
 				stackForBooleans.push(false);
 			}
 			break;
+			
 		case SimpleConstants.LESS_THAN:
 			accumulator = stackForIntegers.pop();
 			if (stackForIntegers.pop() < accumulator) {
@@ -316,6 +304,7 @@ public class SimpleExecuter {
 				stackForBooleans.push(false);
 			}
 			break;
+			
 		case SimpleConstants.NOT_EQUAL:
 			if (stackForIntegers.pop() != stackForIntegers.pop()) {
 				stackForBooleans.push(true);
@@ -396,16 +385,9 @@ public class SimpleExecuter {
 			MoveForward(SimpleConstants.FUNCTION_END.trim() + "_" + split[1]);
 			break;
 		case SimpleConstants.FUNCTION_PARAM :
-			//System.out.println("Inside function param...");
 			scope.push(countForScope);
-			//System.out.println(scope.peek());
-			/*if (scope.isEmpty())
-				System.out.println("Empty");
-			else 
-				System.out.println("Not Empty: " + getScope());*/
 			countForScope++;
 			for (int i = split.length-1; i > 0; i--) {
-				//System.out.println(getScope() + split[i] + "--" + stackForIntegers.peek());
 				variables.put(getScope() + split[i], stackForIntegers.pop());	
 			}
 			break;
