@@ -22,15 +22,15 @@ public class SimpleCompiler {
 	static simpleParser parser = null;
 	public static void main(String[] args) {
 		
-		String filename = "resources/SamplePrograms/test.simple";
-		System.out.print(args.length );
-		/*if (args.length > 0){
+		String filename = "";
+			
+		if (args.length > 0){
 		
-    			filename = "ArithmaticOperations.simple";
+			filename = args[0];
 		} else {
 			System.out.println("input filename can't be empty");
 			return;
-		}*/
+		}
 		
 		if (!filename.contains(".simple")) {
 			System.out.println("Enter a valid .simple file");

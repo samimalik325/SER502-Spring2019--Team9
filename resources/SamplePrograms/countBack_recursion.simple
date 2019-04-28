@@ -1,0 +1,18 @@
+declare
+
+int n;
+
+begin
+
+n = 50;
+countBackwards(n);
+
+def countBackwards(n):
+if (n>0):
+ 	print n;
+	n = n-1;
+	countBackwards(n);
+endif
+endfunc
+
+end;
