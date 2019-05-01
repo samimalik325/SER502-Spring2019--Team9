@@ -22,49 +22,46 @@ Week 2 (Mar 31 - Apr 6)
 	- Studied and explored about compiler implementation process and provided design
 2. Prashansa
 	- Discussed and implemented grammar
-	- Wrote sample programs
-	- verified sample programs with the grammar
+	- Learning prerequisites for compiler design
 3. Muhammad Sami
 	- Discussed and implemented grammar
-	- Wrote sample programs
-	- verified sample programs with the grammar
+	- Learning prerequisites for compiler design
 	
 Proposed plan -
-1. Subhradeep Biswas - Lexical Analyzer
-2. Prashansa - Parse tree generator
-3. Muhammad Sami- Intermediate code generation and Runtime Execution
-
+1. Subhradeep Biswas - Declaration and Assignment of data types int and boolean 
+2. Prashansa - Implementation of loops and writing Sample Programs.
+3. Muhammad Sami- Function and recursion implementation.
 
 Week 3 (Apr 7 - Apr 14)
 1. Subhradeep Biswas
 	- Study about ANTLR tool
-	- Create Lexical Analyser skeleton
 	- Write unit test cases to test grammar
-	- Write Sample programs
+	- Help team with executing compiler
+	- Study about runtime execution
+
 2. Prashansa
 	- Study about ANTLR tool
-	- Create Parser Skeleton
+	- Implementation of loops in intermediate Code generation.
 	- Write sample programs
-	- verify sample programs with the grammar
+	- Verify sample programs with the grammar
 3. Muhammad Sami
 	- Study about intermediate code generation
 	- Try generating intermediate code for simple programs
 	- Study about runtime execution
 	- Handle runtime for simple programs
-	- Help team with executing compiler
 
 
 Week 4 (Apr 15 - Apr 22)
 1. Subhradeep Biswas
 	- Make changes to grammar structure to make it compatible with ANTLR
 	- Change lexer skeleton to match our grammar
+	- Develop intermediate code generator	
 2. Prashansa
 	- Make changes to grammar structure to make it compatible with ANTLR
-	- Explore the generated parse trees and fixed bugs in grammar.
-3. Muhammad Sami
-	- Develop intermediate code generator
+	- Develop intermediate code generator	
 	- Write sample programs
-	- verify generated intermediate code with the parse tree
+3. Muhammad Sami
+	- Develop intermediate code generator	
 	- Develop basic runtime structure
 
 
